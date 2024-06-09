@@ -27,7 +27,7 @@ const KioskPage: React.FC = () => {
     // 예를 들어, 추천 메뉴를 DB에서 받아오는 코드:
 
     const getUser = async () => {
-      const currentUser: any = await axios.get("https://kiosk-ble.onrender.com:5555/getUser")
+      const currentUser: any = await axios.get("https://kiosk-ble.onrender.com/getUser")
       console.log(currentUser)
       if (typeof currentUser === 'object' && !Array.isArray(currentUser) && currentUser !== null) {
         console.log("success")

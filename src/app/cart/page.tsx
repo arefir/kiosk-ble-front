@@ -64,7 +64,7 @@ const CartPage = () => {
   };
 
   const proceedToOrderInfo = async () => {
-    const resId = await axios.get("https://kiosk-ble.onrender.com:5555/getUser")
+    const resId = await axios.get("https://kiosk-ble.onrender.com/getUser")
     if (resId.data.user != null && resId.data.user != "null")
       cart.forEach(async item => {
         const order = await getOrder()
