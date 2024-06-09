@@ -25,6 +25,7 @@ const CartPage = () => {
     }
   ]);
 
+
   useEffect(() => {
     const updateData = async () => {
       const currentCart = await getCart()
@@ -43,6 +44,7 @@ const CartPage = () => {
   const [view, setView] = useState<'cart' | 'payment' | 'info'>('cart');
   const [orderStatus, setOrderStatus] = useState<'received' | 'cooking' | 'completed'>('received');
   const [isEditingTableNumber, setIsEditingTableNumber] = useState(false);
+  const [finalTotal, setFinalTotal] = useState(0)
 
   const handleQuantityChange = (id: number, amount: number) => {
     setCart(cart.map(item =>
@@ -66,6 +68,7 @@ const CartPage = () => {
 
   const proceedToOrderInfo = async () => {
     const resId = await axios.get("https://kiosk-ble.onrender.com/getUser")
+    setFinalTotal(totalAmount)
     if (resId.data.user != null && resId.data.user != "null")
       cart.forEach(async item => {
         const order = await getOrder()
@@ -310,7 +313,7 @@ const CartPage = () => {
             ))}
             <div className="flex justify-between mb-2">
               <div className="text-gray-700 text-lg font-semibold">총 결제금액</div>
-              <div className="text-gray-900 text-2xl font-bold">{totalAmount.toLocaleString()}원</div>
+              <div className="text-gray-900 text-2xl font-bold">{finalTotal!.toLocaleString()}원</div>
             </div>
             <div className="flex justify-between mb-4">
               <div className="text-gray-700 text-lg font-semibold">테이블 번호</div>
