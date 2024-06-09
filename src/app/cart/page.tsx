@@ -5,6 +5,7 @@ import { FaHourglassHalf, FaReceipt, FaCheck, FaStar, FaArrowLeft, FaEdit } from
 import axios, { AxiosResponse } from "axios";
 import { fromJSON } from 'postcss';
 import { getCart, saveOrder, emptyCart, getOrder } from "../dbController"
+import Image from 'next/image';
 
 const CartPage = () => {
 
@@ -125,7 +126,7 @@ const CartPage = () => {
           <div className="border border-gray-300 rounded-lg p-4 mb-4">
             {cart.map(item => (
               <div key={item.id} className="flex justify-between items-center border-b pb-2 mb-2 last:border-b-0">
-                <img src={item.imgUrl} alt={item.name} className="w-16 h-16 rounded" />
+                <Image unoptimized src={item.imgUrl} alt={item.name} className="w-16 h-16 rounded" />
                 <div className="flex-1 ml-4">
                   <div className="text-gray-700 text-base">{item.name}</div>
                   <div className="text-gray-500 text-sm">{item.price}원</div>
@@ -299,7 +300,7 @@ const CartPage = () => {
             </div>
             {cart.map(item => (
               <div key={item.id} className="flex justify-between items-center border-b pb-2 mb-2 last:border-b-0">
-                <img src={item.imgUrl} alt={item.name} className="w-16 h-16 rounded" />
+                <Image unoptimized src={item.imgUrl} alt={item.name} className="w-16 h-16 rounded" />
                 <div className="flex-1 ml-4">
                   <div className="text-gray-700 text-base">{item.name}</div>
                   <div className="text-gray-500 text-sm">{item.price}원</div>

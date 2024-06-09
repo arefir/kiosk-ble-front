@@ -97,7 +97,7 @@ const ItemPage = ({ params }: { params: { storeId: string; categoryId: string; i
       </div>
       <hr className="my-4" />
       <div className="text-center">
-        <Image src={item.imageUrl} alt={item.name} width={300} height={200} className="mx-auto" />
+        <Image unoptimized src={item.imageUrl} alt={item.name} width={300} height={200} className="mx-auto" />
         <h1 className="text-3xl font-bold my-4">{item.name}</h1>
         <hr className="my-4" />
         <p className="text-lg my-4">{item.description}</p>

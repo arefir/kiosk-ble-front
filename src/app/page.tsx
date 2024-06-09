@@ -158,7 +158,7 @@ const KioskPage: React.FC = () => {
         </div>
       )}
       <header className="relative w-full h-56">
-        <Image src={store.imageUrl || '/default.jpg'} alt="Restaurant" layout="fill" objectFit="cover" className="w-full h-full object-cover" />
+        <Image unoptimized src={store.imageUrl || '/default.jpg'} alt="Restaurant" layout="fill" objectFit="cover" className="w-full h-full object-cover" />
       </header>
       <h1 className="text-3xl font-bold my-4">{store.name}</h1>
       <nav
@@ -183,7 +183,7 @@ const KioskPage: React.FC = () => {
         {selectedItems.map(item => (
           <div key={item.id} className="flex items-center cursor-pointer border-b py-4" onClick={() => router.push(`/menu/${store!.id}/${selectedCategory === 0 ? store!.categories[0].id : selectedCategory}/${item.id}`)}>
             <div className="flex-shrink-0 mr-4" style={{ width: '210px', height: '150px' }}>
-              <Image src={item.imageUrl} alt={item.name} width={210} height={150} className="object-contain w-full h-full" />
+              <Image unoptimized src={item.imageUrl} alt={item.name} width={210} height={150} className="object-contain w-full h-full" />
             </div>
             <div className="text-left flex-1">
               <h2 className="text-2xl font-bold">{item.name}</h2>
